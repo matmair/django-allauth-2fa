@@ -197,7 +197,9 @@ def test_2fa_removal(client, john_with_totp):
     client.get(reverse("two-factor-remove"))
 
     # reset throttling and get another token
-    totp_device.throttle_reset()
+    # check if throttling is avalable (django_otp >= 0.6) and enabled
+    if hasattr(totp_device, 'throttling_enabled') and totp_device.throttling_enabled:
+        totp_device.throttle_reset()
     token = get_token_from_totp_device(totp_device)
 
     # ... and POST to confirm
