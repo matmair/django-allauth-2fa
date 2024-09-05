@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "django-allauth-2fa"
+name = "django-allauth-2fa-inventree"
 dynamic = ["version"]
 description = "Adds two factor authentication to django-allauth"
 readme = "README.rst"
